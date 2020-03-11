@@ -27,15 +27,95 @@ this assignment.  For each question supply graphical evidence, numerical summari
 
 ### Do people who believe in Love at First sight also tend to believe in Life on other planets?
 
-  
-  
-    
-# Your second Question  
+$H_0$: There is no belief in love at first site and belief in et.
+$A_A$: there is belief in love at first site and in et.
+
+graphic display
+
+```{r}
+barchartGC(~love_first + extra_life,data=mydata, xlab="love at first site")
+```
+people who believe in first site also tend to beleive in et
+
+numerical summary 
+
+```{r}
+table1 <- xtabs(~love_first + extra_life, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```  
+it looks about the same 
+
+inference
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+We fail to reject it,there has no evidence to support the contention because the p value is higher then p<0.05
+
+# Your second Question 
+
 
 ### Is there a difference between boys and girls with respect to belief in life on other planets?
+$H_0$: There is no relation between boys and girls belief in life on other planets.
+$A_A$: there is belief in life on ither planets between boys and girls.
+
+
+
+
+
+graphical summary
+```{r}
+barchartGC(~sex + extra_life,data=mydata)
+```
+  Boys seems to believe in life on other planet more than girls
   
+  numerical summary
+  
+```{r}
+table1 <- xtabs(~sex + extra_life, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```  
  
+ Inference
+ 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+ we fail to reject the hypotheseis because the p value is higher then 0.05
  
 # Your last Question   
 
 ### Is there a difference between boys and girls with respect to belief in love at First sight?
+$H_0$: there is no relation between boys and girls with respect to love at first site.
+$A_A$: there is a relation between boys and girls with respect to love at first site.
+
+
+graphical summary
+```{r}
+barchartGC(~sex + love_first,data=mydata)
+```
+Boys do not believe in Love at first site.
+ numerical summary
+  
+```{r}
+table1 <- xtabs(~sex + extra_life, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```  
+Boys do not believe in love at first site.
+Inference
+ 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+We fail to reject it because it is higher then p value 0.05
