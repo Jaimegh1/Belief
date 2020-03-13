@@ -98,6 +98,8 @@ $H_0$: there is no relation between boys and girls with respect to love at first
 $A_A$: there is a relation between boys and girls with respect to love at first site.
 
 
+
+
 graphical summary
 ```{r}
 barchartGC(~sex + love_first,data=mydata)
